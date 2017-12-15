@@ -1,11 +1,9 @@
 -- We need an "Publikationsmodell" for this!
 
 CREATE ROLE oereb_read WITH LOGIN ENCRYPTED PASSWORD 'itstheendoftheworldasweknowit';
-GRANT USAGE ON SCHEMA agi_oereb_app TO oereb_read;
-GRANT SELECT ON ALL TABLES IN SCHEMA agi_oereb_app TO oereb_read;
-
 
 CREATE SCHEMA agi_oereb_app;
+GRANT USAGE ON SCHEMA agi_oereb_app TO oereb_read;
 
 CREATE TABLE agi_oereb_app.egrid_parcel (
 	t_id bigserial,
@@ -54,6 +52,6 @@ CREATE
     agi_oereb_app.egrid_address
         USING btree(housing_number) ;
 
-
+GRANT SELECT ON ALL TABLES IN SCHEMA agi_oereb_app TO oereb_read;
 
 
